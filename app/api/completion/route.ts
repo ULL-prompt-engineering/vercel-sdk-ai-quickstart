@@ -8,13 +8,14 @@ const openai = new OpenAI({
 
 // Set the runtime to edge for best performance
 export const runtime = 'edge';
- 
+
+let senv = process.env;
 export async function POST(req: Request) {
   const { prompt } = await req.json();
  
   // Just to show you that env vars persist across requests
-  process.env.COUNTER = (Number(process.env.COUNTER) + 1).toString();
-  console.log('COUNTER', process.env.COUNTER) 
+  senv.COUNTER = (Number(senv.COUNTER) + 1).toString();
+  console.log('COUNTER', senv.COUNTER) 
 
 
   // Ask OpenAI for a streaming completion given the prompt
