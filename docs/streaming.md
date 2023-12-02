@@ -2,20 +2,6 @@
 
 Large Language Models (LLMs) are extremely powerful. However, when generating long outputs, they can be very slow compared to the latency you're likely used to. If you try to build a traditional blocking UI, your users might easily find themselves staring at loading spinners for 5, 10, even up to 40s waiting for the entire LLM response to be generated. This can lead to a poor user experience, especially in conversational applications like chatbots. Streaming UIs can help mitigate this issue by displaying parts of the response as they become available.
 
-```ts
-import { OpenAIStream, StreamingTextResponse } from 'ai';
-
-export async function POST(req: Request) {
-  const { prompt } = await req.json();
- 
-  const response = await openai.completions.create({ 
-    stream: true, model: 'text-davinci-003', temperature: 0.6,  max_tokens: 300, 
-    prompt: `Create three slogans ...Business: ${prompt} Slogans:` });
-  const stream = OpenAIStream(response);
-  return new StreamingTextResponse(stream);
-}
-```
-
 ### OpenAIStream
 
 [OpenAIStream](https://sdk.vercel.ai/docs/api-reference/openai-stream) is a utility function that transforms the `response` from OpenAI's completion and chat models into a [ReadableStream](https://nodejs.org/api/webstreams.html#class-readablestream). 
@@ -37,6 +23,20 @@ The parameters are:
 
 - `res: Response`. This is the response object returned by either `openai.completions.create` or `openai.chat.completions.create` methods.
 - `cb?: AIStreamCallbacks`. This is an optional parameter which is an object that contains callback functions for handling the start, completion, and each token of the AI response. If not provided, default behavior is applied.
+
+```ts
+import { OpenAIStream, StreamingTextResponse } from 'ai';
+
+export async function POST(req: Request) {
+  const { prompt } = await req.json();
+ 
+  const response = await openai.completions.create({ 
+    stream: true, model: 'text-davinci-003', temperature: 0.6,  max_tokens: 300, 
+    prompt: `Create three slogans ...Business: ${prompt} Slogans:` });
+  const stream = OpenAIStream(response);
+  return new StreamingTextResponse(stream);
+}
+```
 
 ## StreamingTextResponse
 
