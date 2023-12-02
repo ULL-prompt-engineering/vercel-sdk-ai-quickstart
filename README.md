@@ -177,6 +177,8 @@ export default function SloganGenerator() {
 }
 ```
 
+See section [JSX/TSX](docs/jsx.md) for more details about JSX.
+
 This component utilizes the `useCompletion` hook, which will, by default, use the `POST` route handler we created earlier. 
 
 ```tsx
