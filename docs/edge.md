@@ -29,5 +29,21 @@ On the server, there are two runtimes where parts of your application code can b
 - The **Node.js Runtime** (default) has access to all Node.js APIs and compatible packages from the ecosystem.
 - The Edge Runtime is based on [Web APIs](https://nextjs.org/docs/app/api-reference/edge).
 
-[![](https://img.youtube.com/vi/jggOKuD8xd0?si=V23thTnyBRDIzEWI/maxresdefault.jpg)](https://youtu.be/jggOKuD8xd0?si=V23thTnyBRDIzEWI) 
+In Next.js, the lightweight Edge Runtime is a subset of available Node.js APIs.
+
+The Edge Runtime is ideal if you need to deliver dynamic, personalized content at low latency with small, simple functions. The Edge Runtime's speed comes from its minimal use of resources, but that can be limiting in many scenarios.
+
+The following example demonstrates a page route segment that exports a runtime with a value of `'edge'`
+
+```tsx
+// Set the runtime to edge for best performance
+export const runtime = 'edge';
+```
+
+## Serverless Node.js
+
+Serverless is ideal if you need a scalable solution that can handle more complex computational loads than the Edge Runtime. With Serverless Functions on Vercel, for example, your overall code size is 50MB including imported packages, fonts, and files.
+
+The downside compared to routes using the [Edge](https://vercel.com/docs/concepts/functions/edge-functions) is that it can take hundreds of milliseconds for Serverless Functions to boot up before they begin processing requests. Depending on the amount of traffic your site receives, this could be a frequent occurrence as the functions are not frequently "warm"
+
 

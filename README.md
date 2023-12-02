@@ -198,6 +198,10 @@ The `useCompletion` hook provides multiple utility functions and state variables
   - submitting the form.
 - `isLoading` This boolean indicates whether the API request is in progress or not.
 
+## Streaming 
+
+See [docs/streaming.md](docs/streaming.md)
+
 ## Origin Servers, CDNs and Edges 
 
 See [docs/edge.md](docs/edge.md)
