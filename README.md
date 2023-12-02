@@ -72,11 +72,16 @@ Replace `xxxxxxxxx` with your actual OpenAI API key.
 
 ## Create an API Route
 
-Create a Next.js Route Handler at  `app/api/completion/route.ts`. 
+Let us create a Next.js Route Handler at  `app/api/completion/route.ts`. 
 Create the folders 
 - `api` and 
 - `api/completion` and then 
 - the file `app/api/completion/route.ts`. 
+
+A route handler is a function that handles requests to a particular path. It is an example of what is called a [middleware](docs/middleware.md) in Next.js. It is also a [serverless function](docs/serverless.md) 
+
+```ts
+
 
 This handler will be using the [Edge Runtime](docs/edge.md) to generate a text completion via OpenAI, which will then be streamed back to Next.js.
 
