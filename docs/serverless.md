@@ -6,6 +6,11 @@ The developer only needs to provide the code and specify the events that should 
 
 ![https://sytws.netlify.app/images/how-do-serverless-functions-work.png](https://sytws.netlify.app/images/how-do-serverless-functions-work.png)
 
+With Vercel, for each incoming request to a serverless function, a new invocation happens.
+
+If a request is received shortly after a function is executed, Vercel optimizes performance by reusing that function for the subsequent invocation. Over time, only as many functions as necessary are kept active to accommodate incoming traffic.
+
+
 ![https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1689795055%2Fdocs-assets%2Fstatic%2Fdocs%2Fconcepts%2Ffunctions%2Fedge-functions-light.png&w=3840&q=75&dpl=dpl_9popvVXyaYTHjAgsjnyhAr6SgWMX](https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1689795055%2Fdocs-assets%2Fstatic%2Fdocs%2Fconcepts%2Ffunctions%2Fedge-functions-light.png&w=3840&q=75&dpl=dpl_9popvVXyaYTHjAgsjnyhAr6SgWMX)
 
 [^1]: [Serverless Functions](https://sytws.netlify.app/temas/web/serverless.html#serverless-functions)
