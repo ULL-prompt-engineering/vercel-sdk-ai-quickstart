@@ -49,7 +49,7 @@ then
 cd vercel-sdk-ai-quickstart
 ```
 
-Next, we'll install `ai` and `openai`, OpenAI's official JavaScript SDK compatible with the Vercel Edge Runtime.
+Next, we'll install `ai` and `openai`, OpenAI's official JavaScript SDK compatible with the [Vercel Edge Runtime](docs/edge.md).
 
 
 ```
@@ -78,7 +78,7 @@ Create the folders
 - `api/completion` and then 
 - the file `app/api/completion/route.ts`. 
 
-This handler will be using the Edge Runtime to generate a text completion via OpenAI, which will then be streamed back to Next.js.
+This handler will be using the [Edge Runtime](docs/edge.md) to generate a text completion via OpenAI, which will then be streamed back to Next.js.
 
 Here's what the route handler should look like:
 
@@ -193,8 +193,14 @@ The `useCompletion` hook provides multiple utility functions and state variables
 
 - `completion` - This is the current completion result, a string value representing the generated text.
 - `input` - This is the current value of the user's input field.
-- `handleInputChange` and `handleSubmit` - These functions handle user interactions such as typing into the input field and submitting the form, respectively.
+- `handleInputChange` and `handleSubmit` - These functions handle user interactions such as 
+  - typing into the input field and 
+  - submitting the form.
 - `isLoading` This boolean indicates whether the API request is in progress or not.
+
+## Origin Servers, CDNs and Edges 
+
+See [docs/edge.md](docs/edge.md)
 
 ## Running the Project
 
