@@ -12,7 +12,12 @@ CDNs store **static content** (such as HTML and image files) in multiple locatio
 
 ## The Edge
 
-Edge servers are distributed to multiple locations around the world. Unlike CDNs, which store static content, Edge servers can run small snippets of code. Edge computing supports not only transmitting cached data but other types of computing like live streaming and gaming. 
+**Edge servers** are distributed to multiple locations around the world. 
+
+**Unlike CDNs, which store static content, Edge servers can run small snippets of code**. 
+
+Edge computing supports not only transmitting cached data but other types of computing like 
+*live streaming* and *gaming*. 
 
 ## The Edge Runtime
 
@@ -23,4 +28,6 @@ On the server, there are two runtimes where parts of your application code can b
 
 - The **Node.js Runtime** (default) has access to all Node.js APIs and compatible packages from the ecosystem.
 - The Edge Runtime is based on [Web APIs](https://nextjs.org/docs/app/api-reference/edge).
+
+[![](https://img.youtube.com/vi/jggOKuD8xd0?si=V23thTnyBRDIzEWI/maxresdefault.jpg)](https://youtu.be/jggOKuD8xd0?si=V23thTnyBRDIzEWI) 
 
