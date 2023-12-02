@@ -72,7 +72,38 @@ Replace `xxxxxxxxx` with your actual OpenAI API key.
 
 ## Create an API Route
 
+[Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) allow you to create custom request handlers for a given route using the [Web Request](https://developer.mozilla.org/docs/Web/API/Request) and [Response](https://developer.mozilla.org/docs/Web/API/Response) APIs.
+
+```ts
+export const dynamic = 'force-dynamic' // defaults to force-static
+export async function GET(request: Request) { }
+export async function POST(request: Request) { }
+```
+
+Route Handlers are defined in a `route.js|ts` file inside the `app` directory:
+
+![](https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Froute-special-file.png&w=3840&q=75&dpl=dpl_GGugRB3M3WE9C8xcmftCsUL7LkbG)
+
+Route Handlers can be nested inside the app directory.
+
+Here is a simple example:
+  
+```ts
+export async function GET() {
+  const res = await fetch('https://data.mongodb-api.com/...', {
+    headers: {
+      'Content-Type': 'application/json',
+      'API-Key': process.env.DATA_API_KEY,
+    },
+  })
+  const data = await res.json()
+ 
+  return Response.json({ data })
+}
+```
+
 Let us create a Next.js Route Handler at  `app/api/completion/route.ts`. 
+
 Create the folders 
 - `api` and 
 - `api/completion` and then 
