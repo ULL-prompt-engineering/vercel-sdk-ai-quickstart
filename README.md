@@ -74,20 +74,14 @@ Replace `xxxxxxxxx` with your actual OpenAI API key.
 
 [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) allow you to create custom request handlers for a given route using the [Web Request](https://developer.mozilla.org/docs/Web/API/Request) and [Response](https://developer.mozilla.org/docs/Web/API/Response) APIs.
 
-```ts
-export const dynamic = 'force-dynamic' // defaults to force-static
-export async function GET(request: Request) { }
-export async function POST(request: Request) { }
-```
-
 Route Handlers are defined in a `route.js|ts` file inside the `app` directory:
 
 ![](https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Froute-special-file.png&w=3840&q=75&dpl=dpl_GGugRB3M3WE9C8xcmftCsUL7LkbG)
 
 Route Handlers can be nested inside the app directory.
 
-Here is a simple example:
-  
+Here is a simple example in file `app/api/hello/route.ts`:
+
 ```ts
 export async function GET() {
   const res = await fetch('https://data.mongodb-api.com/...', {
@@ -110,9 +104,6 @@ Create the folders
 - the file `app/api/completion/route.ts`. 
 
 A route handler is a function that handles requests to a particular path. It is an example of what is called a [middleware](docs/middleware.md) in Next.js. It is also a [serverless function](docs/serverless.md) 
-
-```ts
-
 
 This handler will be using the [Edge Runtime](docs/edge.md) to generate a text completion via OpenAI, which will then be streamed back to Next.js.
 
